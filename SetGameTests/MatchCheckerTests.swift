@@ -2,6 +2,14 @@ import XCTest
 @testable import SetGame
 
 class MatchChekerTests: XCTestCase {
+	
+	func testMatchAllDifferent() {
+		let cards = [Card(withColor: .red, withShape: .diamond),
+					 Card(withColor: .green, withShape: .squiggle),
+					 Card(withColor: .purple, withShape: .oval)]
+		
+		XCTAssertTrue(check(cards: cards), "Set of completly different cards did not match")
+	}
 
 	func testMatchSameColor() {
 		let cards = [Card(withColor: .red, withShape: .diamond),
@@ -35,7 +43,7 @@ class MatchChekerTests: XCTestCase {
 		XCTAssertTrue(check(cards: cards), "Set of matching cards with same shape did not match")
 	}
 	
-	func testMatchAllDifferent() {
+	func testMatchAllDifferentShape() {
 		let cards = [Card(withColor: .red, withShape: .diamond),
 					 Card(withColor: .red, withShape: .squiggle),
 					 Card(withColor: .red, withShape: .oval)]
