@@ -3,6 +3,8 @@ import Foundation
 func check(cards: [Card]) -> Bool {
 	return checkColor(cards: cards)
 		&& checkShape(cards: cards)
+		&& checkShading(cards: cards)
+		&& checkShapeCount(cards: cards)
 }
 
 private func checkColor(cards: [Card]) -> Bool {
@@ -28,6 +30,36 @@ private func checkShape(cards: [Card]) -> Bool {
 		&& cards[0].shape != cards[2].shape
 		&& cards[1].shape != cards[2].shape {
 			return true
+		
+	}
+	
+	return false
+}
+
+private func checkShading(cards: [Card]) -> Bool {
+	if cards[0].shading == cards[1].shading
+		&& cards[0].shading == cards[2].shading
+		&& cards[1].shading == cards[2].shading {
+		return true
+	} else if  cards[0].shading != cards[1].shading
+		&& cards[0].shading != cards[2].shading
+		&& cards[1].shading != cards[2].shading {
+		return true
+		
+	}
+	
+	return false
+}
+
+private func checkShapeCount(cards: [Card]) -> Bool {
+	if cards[0].shapeCount == cards[1].shapeCount
+		&& cards[0].shapeCount == cards[2].shapeCount
+		&& cards[1].shapeCount == cards[2].shapeCount {
+		return true
+	} else if  cards[0].shapeCount != cards[1].shapeCount
+		&& cards[0].shapeCount != cards[2].shapeCount
+		&& cards[1].shapeCount != cards[2].shapeCount {
+		return true
 		
 	}
 	

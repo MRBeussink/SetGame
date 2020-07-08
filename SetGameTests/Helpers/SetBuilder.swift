@@ -15,10 +15,12 @@ enum CardMatch {
 	case different
 }
 
-func cardSet(withColors colorMatch: CardMatch, withShapes shapeMatch: CardMatch) -> [Card] {
+func cardSet(withColors colorMatch: CardMatch, withShapes shapeMatch: CardMatch, withShading shadingMatch: CardMatch, withShapeCount countMatch: CardMatch) -> [Card] {
 	let cardsWithColors = cardSet(withColors: colorMatch)
 	let cardsWithShapes = cardSet(from: cardsWithColors, withShapes: shapeMatch)
-	return cardsWithShapes.map { $0.build() }
+	let cardsWithShading = cardSet(from: cardsWithShapes, withShading: shadingMatch)
+	let cardsWithShapeCount = cardSet(from: cardsWithShading, withShapeCount: countMatch)
+	return cardsWithShapeCount.map { $0.build() }
 }
 
 private func cardSet(withColors colorMatch: CardMatch) -> [CardBuilder] {
@@ -54,6 +56,52 @@ private func cardSet(from builders: [CardBuilder], withShapes shapeMatch: CardMa
 		let shapes: [CardShape] = [.diamond, .oval, .squiggle]
 		for i in 0..<builders.count {
 			newBuilders.append(builders[i].with{ $0.shape = shapes[i] })
+		}
+		return newBuilders
+	}
+}
+
+private func cardSet(from builders: [CardBuilder], withShading shapeMatch: CardMatch) -> [CardBuilder] {
+	switch shapeMatch {
+	case .same:
+		return builders.map { builder in
+			return builder.with{ $0.shading = .solid }
+		}
+	case .mismatch:
+		var newBuilders = [CardBuilder]()
+		let shadings: [CardShading] = [.solid, .stripped, .stripped]
+		for i in 0..<builders.count {
+			newBuilders.append(builders[i].with{ $0.shading = shadings[i] })
+		}
+		return newBuilders
+	case .different:
+		var newBuilders = [CardBuilder]()
+		let shadings: [CardShading] = [.solid, .stripped, .open]
+		for i in 0..<builders.count {
+			newBuilders.append(builders[i].with{ $0.shading = shadings[i] })
+		}
+		return newBuilders
+	}
+}
+
+private func cardSet(from builders: [CardBuilder], withShapeCount countMatch: CardMatch) -> [CardBuilder] {
+	switch countMatch {
+	case .same:
+		return builders.map { builder in
+			return builder.with{ $0.shapecCount = 1 }
+		}
+	case .mismatch:
+		var newBuilders = [CardBuilder]()
+		let counts: [Int] = [1, 1, 2]
+		for i in 0..<builders.count {
+			newBuilders.append(builders[i].with{ $0.shapecCount = counts[i] })
+		}
+		return newBuilders
+	case .different:
+		var newBuilders = [CardBuilder]()
+		let counts: [Int] = [1, 2, 3]
+		for i in 0..<builders.count {
+			newBuilders.append(builders[i].with{ $0.shapecCount = counts[i] })
 		}
 		return newBuilders
 	}
