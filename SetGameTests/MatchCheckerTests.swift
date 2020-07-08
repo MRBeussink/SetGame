@@ -4,58 +4,29 @@ import XCTest
 class MatchChekerTests: XCTestCase {
 	
 	func testMatchAllDifferent() {
-		let cards = [Card(withColor: .red, withShape: .diamond),
-					 Card(withColor: .green, withShape: .squiggle),
-					 Card(withColor: .purple, withShape: .oval)]
-		
-		XCTAssertTrue(check(cards: cards), "Set of completly different cards did not match")
+		XCTAssertTrue(check(cards: cardSet(withColors: .different, withShapes: .different)),
+					  "Set of completly different cards did not match")
+	}
+	
+	func testMatchCheckingAllMismatch() {
+		XCTAssertFalse(check(cards: cardSet(withColors: .mismatch, withShapes: .mismatch)),
+					   "Set of mismatching cards for all features matched")
 	}
 
-	func testMatchSameColor() {
-		let cards = [Card(withColor: .red, withShape: .diamond),
-					 Card(withColor: .red, withShape: .diamond),
-					 Card(withColor: .red, withShape: .diamond)]
-		
-		XCTAssertTrue(check(cards: cards), "Set of matching cards with same color did not match")
+	func testMatchCheckingForColor() {
+		XCTAssertTrue(check(cards: cardSet(withColors: .same, withShapes: .same)),
+					  "Set of matching cards with same color did not match")
+		XCTAssertTrue(check(cards: cardSet(withColors: .different, withShapes: .same)),
+					  "Set of matching cards with differnt colors did not match")
+		XCTAssertFalse(check(cards: cardSet(withColors: .mismatch, withShapes: .same)),
+					   "Set of mismatching cards with 2 red, 1 green matched")
 	}
 	
-	func testMatchAllDifferentColor() {
-		let cards = [Card(withColor: .red, withShape: .diamond),
-					 Card(withColor: .green, withShape: .diamond),
-					 Card(withColor: .purple, withShape: .diamond)]
-		
-		XCTAssertTrue(check(cards: cards), "Set of matching cards with differnt colors did not match")
-	}
-	
-	func testMismatchColor() {
-		let cards = [Card(withColor: .red, withShape: .diamond),
-					 Card(withColor: .red, withShape: .diamond),
-					 Card(withColor: .green, withShape: .diamond)]
-		
-		XCTAssertFalse(check(cards: cards), "Set of mismatching cards with 2 red, 1 green matched")
-	}
-	
-	func testMatchSameShape() {
-		let cards = [Card(withColor: .red, withShape: .diamond),
-					 Card(withColor: .green, withShape: .diamond),
-					 Card(withColor: .purple, withShape: .diamond)]
-		
-		XCTAssertTrue(check(cards: cards), "Set of matching cards with same shape did not match")
-	}
-	
-	func testMatchAllDifferentShape() {
-		let cards = [Card(withColor: .red, withShape: .diamond),
-					 Card(withColor: .red, withShape: .squiggle),
-					 Card(withColor: .red, withShape: .oval)]
-		
-		XCTAssertTrue(check(cards: cards), "Set of matching cards with all different shapes did not match")
-	}
-	
-	func testMismatchShape() {
-		let cards = [Card(withColor: .red, withShape: .diamond),
-					 Card(withColor: .red, withShape: .diamond),
-					 Card(withColor: .red, withShape: .squiggle)]
-		
-		XCTAssertFalse(check(cards: cards), "Set of cards mismatching on shape did not mismatch")
+	func testMatchCheckingForShape() {
+		XCTAssertTrue(check(cards: cardSet(withColors: .different, withShapes: .same)),
+					  "Set of matching cards with same shape did not match")
+		XCTAssertTrue(check(cards: cardSet(withColors: .different, withShapes: .mismatch)), "Set of matching cards with all different shapes did not match")
+		XCTAssertFalse(check(cards: cardSet(withColors: .different, withShapes: .mismatch)),
+					   "Set of cards mismatching on shape did not mismatch")
 	}
 }

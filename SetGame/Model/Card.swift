@@ -1,6 +1,6 @@
 import Foundation
 
-struct Card {
+public struct Card {
 	let color: CardColor
 	let shape: CardShape
 	
@@ -26,7 +26,7 @@ enum CardShape {
 
 // MARK: CardBuilder
 
-public struct CardBuilder {
+struct CardBuilder {
 	var color: CardColor?
 	var shape: CardShape?
 	
@@ -36,9 +36,7 @@ public struct CardBuilder {
 		return newBuilder
 	}
 	
-	func build() throws -> Card {
-		guard let color = self.color, let shape = self.shape
-			else { throw fatalError("Build called on builder without all properties set.")}
-		return Card(withColor: color, withShape: shape)
+	func build() -> Card {
+		return Card(withColor: self.color!, withShape: self.shape!)
 	}
 }

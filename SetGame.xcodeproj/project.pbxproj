@@ -16,6 +16,7 @@
 		E2B72E4B2499A34C00FA25C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2B72E492499A34C00FA25C2 /* LaunchScreen.storyboard */; };
 		E2C1E1DC24AAFA20002D086A /* MatchChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C1E1DB24AAFA20002D086A /* MatchChecker.swift */; };
 		E2C1E1DF24AAFABB002D086A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C1E1DE24AAFABB002D086A /* Card.swift */; };
+		E2D9DED824AEC95400992DBF /* SetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D9DED724AEC95400992DBF /* SetBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		E2B72E572499A34C00FA25C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2C1E1DB24AAFA20002D086A /* MatchChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchChecker.swift; sourceTree = "<group>"; };
 		E2C1E1DE24AAFABB002D086A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		E2D9DED724AEC95400992DBF /* SetBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		E2B72E542499A34C00FA25C2 /* SetGameTests */ = {
 			isa = PBXGroup;
 			children = (
+				E2D9DED624AEC8A600992DBF /* Helpers */,
 				E2B72E572499A34C00FA25C2 /* Info.plist */,
 				E2AE057824A6A91E0032D1C5 /* MatchCheckerTests.swift */,
 			);
@@ -127,6 +130,14 @@
 				E2C1E1DE24AAFABB002D086A /* Card.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E2D9DED624AEC8A600992DBF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E2D9DED724AEC95400992DBF /* SetBuilder.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2D9DED824AEC95400992DBF /* SetBuilder.swift in Sources */,
 				E2AE057924A6A91E0032D1C5 /* MatchCheckerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
