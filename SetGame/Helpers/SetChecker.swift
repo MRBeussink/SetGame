@@ -1,6 +1,6 @@
 import Foundation
 
-func check(cards: [Card]) -> Bool {
+func isMatchingSet(cards: [Card]) -> Bool {
 	return checkColor(cards: cards)
 		&& checkShape(cards: cards)
 		&& checkShading(cards: cards)
