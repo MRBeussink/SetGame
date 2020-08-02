@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E2AE057924A6A91E0032D1C5 /* SetCheckingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE057824A6A91E0032D1C5 /* SetCheckingTests.swift */; };
 		E2B5435824D7082900FDC366 /* Card+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5435724D7082900FDC366 /* Card+Hashable.swift */; };
+		E2B5435A24D71D5900FDC366 /* DeckHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B5435924D71D5900FDC366 /* DeckHelper.swift */; };
 		E2B72E3F2499A34B00FA25C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B72E3E2499A34B00FA25C2 /* AppDelegate.swift */; };
 		E2B72E412499A34B00FA25C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B72E402499A34B00FA25C2 /* SceneDelegate.swift */; };
 		E2B72E432499A34B00FA25C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B72E422499A34B00FA25C2 /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		E2AE057824A6A91E0032D1C5 /* SetCheckingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCheckingTests.swift; sourceTree = "<group>"; };
 		E2B5435724D7082900FDC366 /* Card+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+Hashable.swift"; sourceTree = "<group>"; };
+		E2B5435924D71D5900FDC366 /* DeckHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckHelper.swift; sourceTree = "<group>"; };
 		E2B72E3B2499A34B00FA25C2 /* SetGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2B72E3E2499A34B00FA25C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2B72E402499A34B00FA25C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C1E1DB24AAFA20002D086A /* SetChecker.swift */,
+				E2B5435924D71D5900FDC366 /* DeckHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -197,6 +200,8 @@
 			dependencies = (
 			);
 			name = SetGame;
+			packageProductDependencies = (
+			);
 			productName = SetGame;
 			productReference = E2B72E3B2499A34B00FA25C2 /* SetGame.app */;
 			productType = "com.apple.product-type.application";
@@ -247,6 +252,8 @@
 				Base,
 			);
 			mainGroup = E2B72E322499A34B00FA25C2;
+			packageReferences = (
+			);
 			productRefGroup = E2B72E3C2499A34B00FA25C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -285,6 +292,7 @@
 				E2B72E3F2499A34B00FA25C2 /* AppDelegate.swift in Sources */,
 				E2C1E1DF24AAFABB002D086A /* Card.swift in Sources */,
 				E2B72E412499A34B00FA25C2 /* SceneDelegate.swift in Sources */,
+				E2B5435A24D71D5900FDC366 /* DeckHelper.swift in Sources */,
 				E2C1E1DC24AAFA20002D086A /* SetChecker.swift in Sources */,
 				E2E2B80924CFAC770032B3C2 /* Deck.swift in Sources */,
 				E2B72E432499A34B00FA25C2 /* ContentView.swift in Sources */,

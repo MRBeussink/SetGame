@@ -88,20 +88,20 @@ private func cardSet(from builders: [CardBuilder], withShapeCount countMatch: Ca
 	switch countMatch {
 	case .same:
 		return builders.map { builder in
-			return builder.with{ $0.shapecCount = 1 }
+			return builder.with{ $0.shapeCount = 1 }
 		}
 	case .mismatch:
 		var newBuilders = [CardBuilder]()
 		let counts: [Int] = [1, 1, 2]
 		for i in 0..<builders.count {
-			newBuilders.append(builders[i].with{ $0.shapecCount = counts[i] })
+			newBuilders.append(builders[i].with{ $0.shapeCount = counts[i] })
 		}
 		return newBuilders
 	case .different:
 		var newBuilders = [CardBuilder]()
 		let counts: [Int] = [1, 2, 3]
 		for i in 0..<builders.count {
-			newBuilders.append(builders[i].with{ $0.shapecCount = counts[i] })
+			newBuilders.append(builders[i].with{ $0.shapeCount = counts[i] })
 		}
 		return newBuilders
 	}

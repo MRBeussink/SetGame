@@ -15,7 +15,6 @@ class SetGameTest: XCTestCase {
 		
 		let gameModel = Deck()
 		
-//		XCTAssertTrue(gameModel.cards.count == 81, "New game does not start with 81 cards")
-		XCTAssertTrue(Set(gameModel.cards).count == 81, "New game does not start with unique cards")
+		XCTAssertTrue(Set(gameModel.cards).count == 81, "New game does not start with 81 unique cards")
 	}
 }

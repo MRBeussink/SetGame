@@ -40,7 +40,7 @@ struct CardBuilder {
 	var color: CardColor?
 	var shape: CardShape?
 	var shading: CardShading?
-	var shapecCount: Int?
+	var shapeCount: Int?
 	
 	func with(_ consumer: (inout CardBuilder) -> Void) -> CardBuilder {
 		var newBuilder = self
@@ -49,6 +49,6 @@ struct CardBuilder {
 	}
 	
 	func build() -> Card {
-		return Card(withColor: self.color!, withShape: self.shape!, withShading: self.shading!, withShapeCount: self.shapecCount!)
+		return Card(withColor: self.color!, withShape: self.shape!, withShading: self.shading!, withShapeCount: self.shapeCount!)
 	}
 }
