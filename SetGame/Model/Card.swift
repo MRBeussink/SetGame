@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Card {
+public struct Card: Hashable {
 	let color: CardColor
 	let shape: CardShape
 	let shading: CardShading
