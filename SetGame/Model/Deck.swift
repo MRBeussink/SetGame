@@ -2,14 +2,14 @@ import Foundation
 
 struct Deck {
 	
-	private(set) var cards: [Card] = []
+	private(set) var cards: [CardContent] = []
 	
 	
 	init() {
 		self.cards = generateDeck()
 	}
 	
-	private func generateDeck() -> [Card] {
+	private func generateDeck() -> [CardContent] {
 		let buildersWithColor = addColorTo(cardBuilders: [ CardBuilder() ])
 		let buildersWithShape = addShapeTo(cardBuilders: buildersWithColor)
 		let buildersWithShadding = addShadingTo(cardBuilders: buildersWithShape)

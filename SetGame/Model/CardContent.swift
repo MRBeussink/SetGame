@@ -1,12 +1,12 @@
 import Foundation
 
-public struct Card: Hashable {
-	let color: CardColor
-	let shape: CardShape
-	let shading: CardShading
-	let shapeCount: Int
+public struct CardContent: Equatable {
+	public let color: CardColor
+	public let shape: CardShape
+	public let shading: CardShading
+	public let shapeCount: Int
 	
-	init (withColor color: CardColor, withShape shape: CardShape, withShading shading: CardShading, withShapeCount shapeCount: Int) {
+	init (withColor color: CardColor, withShape shape: CardShape, withShading shading: CardShading, withShapeCount shapeCount: Int, withId id: Int = 0) {
 		self.color = color
 		self.shape = shape
 		self.shading = shading
@@ -16,19 +16,19 @@ public struct Card: Hashable {
 
 // MARK: Card features
 
-enum CardColor {
+public enum CardColor {
 	case red
 	case green
 	case purple
 }
 
-enum CardShape {
+public enum CardShape {
 	case diamond
 	case squiggle
 	case oval
 }
 
-enum CardShading {
+public enum CardShading {
 	case solid
 	case stripped
 	case open
@@ -48,7 +48,7 @@ struct CardBuilder {
 		return newBuilder
 	}
 	
-	func build() -> Card {
-		return Card(withColor: self.color!, withShape: self.shape!, withShading: self.shading!, withShapeCount: self.shapeCount!)
+	func build() -> CardContent {
+		return CardContent(withColor: self.color!, withShape: self.shape!, withShading: self.shading!, withShapeCount: self.shapeCount!)
 	}
 }

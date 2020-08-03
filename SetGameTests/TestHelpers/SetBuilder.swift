@@ -15,7 +15,7 @@ enum CardMatch {
 	case different
 }
 
-func cardSet(withColors colorMatch: CardMatch, withShapes shapeMatch: CardMatch, withShading shadingMatch: CardMatch, withShapeCount countMatch: CardMatch) -> [Card] {
+func cardSet(withColors colorMatch: CardMatch, withShapes shapeMatch: CardMatch, withShading shadingMatch: CardMatch, withShapeCount countMatch: CardMatch) -> [CardContent] {
 	let cardsWithColors = cardSet(withColors: colorMatch)
 	let cardsWithShapes = cardSet(from: cardsWithColors, withShapes: shapeMatch)
 	let cardsWithShading = cardSet(from: cardsWithShapes, withShading: shadingMatch)
